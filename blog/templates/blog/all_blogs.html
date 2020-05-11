@@ -1,0 +1,14 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class='text-danger'>
+<h1 class="text-center mb-5"> BLOGS </h1>
+<h2>{{ blogs.count }} blog{{ blogs.count|pluralize}}</h2>
+</div>
+{% for x in blogs %}
+<div class="text-center">
+<a  href="{% url 'blog:detail' x.id %}"><h2>{{ x.title }}</h2></a>
+<h5 class="text-muted">{{ x.date }}</h5>
+</div>
+<p>{{ x.description }}</p>
+{% endfor %}
+{% endblock %}
